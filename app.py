@@ -24,7 +24,10 @@ def applyWallpaper(picStream):
         print "saving"
         handler.write(picStream)
         print "enjoy your new wallpaper."
-        os.system('gsettings set org.gnome.desktop.background picture-uri file:///%s' % path)
+	if os.environ.get('DESKTOP_SESSION') == "xubuntu":
+		os.system('xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image && xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image -s %s' %path)	
+	else: 
+        	os.system('gsettings set org.gnome.desktop.background picture-uri file:///%s' % path)
 
 while True:
     parser = argparse.ArgumentParser()
