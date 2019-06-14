@@ -10,7 +10,7 @@ rootUrl = "https://api.unsplash.com/"
 
 unirest.default_header("Accept", "application/json")
 unirest.default_header("Accept-Version", "v1")
-unirest.default_header("Authorization","Client-ID b217110d6cd594306353183c78a86089afc6be2c78a5cf85defec4d7af70930d")
+unirest.default_header("Authorization","<CLIENT-ID>")
 
 def downloadPic(randomPic_response):
     content = randomPic_response.body
